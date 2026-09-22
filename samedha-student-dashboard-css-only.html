@@ -1,0 +1,121 @@
+margin-bottom:22px">
+<button class="subtab active">Videos</button>
+<button class="subtab">Practice</button>
+</div>
+<div class="empty" style="min-height:280px">
+<div>
+<div class="empty-icon">📄🔍</div>
+<h3>No Content Found</h3>
+<p>Your watched videos will be saved here.</p>
+</div>
+</div>
+</div>\`}, purchases:{title:'My Purchases',html:\`<div class="tabs">
+<button class="tab active">PW Orders</button>
+<button class="tab">Store Orders</button>
+</div>
+<div class="purchase">
+<div class="purchase-main">
+<div class="purchase-thumb">BITSAT<br/>CRASH COURSE<br/>2025</div>
+<div class="purchase-info">
+<span class="status success">SUCCESS</span>
+<h3>BITSAT Crash Course 2025</h3>
+<p>21 Feb'25 • ₹969</p>
+</div>
+<div class="purchase-arrow">›</div>
+</div>
+<div class="notice">This batch got expired on 30 Jun 2025! Renew to access this batch again</div>
+</div>
+<div class="purchase">
+<div class="purchase-main">
+<div class="purchase-thumb">BITSAT<br/>CRASH COURSE<br/>2025</div>
+<div class="purchase-info">
+<span class="status failed">FAILED</span>
+<h3>BITSAT Crash Course 2025</h3>
+<p>21 Feb'25 • ₹999</p>
+</div>
+<div class="purchase-arrow">›</div>
+</div>
+<div class="notice warn">Note: If money or PW Cash is debited from your account, it will be automatically refunded / reversed.</div>
+<div class="notice">This batch got expired on 30 Jun 2025! Renew to access this batch again</div>
+</div>\`}, profile:{title:'My Profile',html:\`<div class="content-panel">
+<h1 class="page-title">My Profile</h1>
+<div style="display:grid;
+gap:18px;
+max-width:600px">
+<label>Full Name<input class="search" style="width:100%;
+padding-left:15px;
+background-image:none" value="Srishanth Neela" />
+</label>
+<label>Email<input class="search" style="width:100%;
+padding-left:15px;
+background-image:none" value="se25umcs001\@example.com" />
+</label>
+<label>Phone<input class="search" style="width:100%;
+padding-left:15px;
+background-image:none" placeholder="Add phone number" />
+</label>
+<button class="test-btn" id="saveProfile">Save Changes</button>
+</div>
+</div>\`}, pi:{title:'Pi',html:\`<div class="content-panel">
+<h1 class="page-title">Pi</h1>
+<p style="color:var(--muted)">Explore interactive learning, practice activities, and AI-powered study support.</p>
+<button class="test-btn" data-page="study">Back to Study</button>
+</div>\`}, store:{title:'Store',html:\`<div class="content-panel">
+<h1 class="page-title">Store</h1>
+<p style="color:var(--muted)">Explore courses, test passes, and learning resources.</p>
+<div style="margin-top:25px">
+<button class="test-btn" data-page="batches">Explore Courses</button>
+</div>
+</div>\`}, upskilling:{title:'Upskilling',html:\`<div class="content-panel">
+<h1 class="page-title">Upskilling</h1>
+<p style="color:var(--muted)">Build practical skills with structured learning paths.</p>
+</div>\`}, privacy:{title:'Privacy Policy',html:\`<div class="content-panel">
+<h1 class="page-title">Privacy Policy</h1>
+<p style="color:var(--muted);
+line-height:1.8">Your account information should be handled responsibly. This demo page can be replaced with your complete privacy policy before publishing.</p>
+</div>\`}, doubts:{title:'My Doubts',html:\`<div class="empty">
+<div>
+<div class="empty-icon">❔</div>
+<h3>No Doubts Found</h3>
+<p>Your asked doubts will appear here.</p>
+</div>
+</div>\`}, bookmarks:{title:'Bookmarks',html:\`<div class="empty">
+<div>
+<div class="empty-icon">🔖</div>
+<h3>No Bookmarks Found</h3>
+<p>Your saved questions will appear here.</p>
+</div>
+</div>\`} };
+ function navigate(page){if(!pages[page])page='study';
+pageHead.textContent=pages[page].title;
+pageContent.innerHTML=pages[page].html;
+document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+sidebar.classList.remove('open');
+document.querySelectorAll('[data-page]').forEach(el=>{if(!el.dataset.bound){el.dataset.bound='1';
+el.addEventListener('click',()=>navigate(el.dataset.page))}});
+const search=document.getElementById('batchSearch');
+if(search){search.addEventListener('input',()=>{const card=document.querySelector('.batch-card');
+card.style.display=search.value&&!('bitsat crash course 2025'.includes(search.value.toLowerCase()))?'none':'block'})}const explore=document.getElementById('exploreCareer');
+if(explore)explore.onclick=()=>alert('Career Pass demo button clicked. Connect this to your checkout page.');
+const save=document.getElementById('saveProfile');
+if(save)save.onclick=()=>alert('Profile changes saved locally in this demo.');
+} document.querySelectorAll('.nav-item').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.page)));
+ document.getElementById('mobileToggle').addEventListener('click',()=>sidebar.classList.toggle('open'));
+ const profileButton=document.getElementById('profileButton'),profileMenu=document.getElementById('profileMenu');
+profileButton.addEventListener('click',e=>{e.stopPropagation();
+profileMenu.classList.toggle('show')});
+document.addEventListener('click',()=>profileMenu.classList.remove('show'));
+profileMenu.addEventListener('click',e=>e.stopPropagation());
+profileMenu.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{profileMenu.classList.remove('show');
+navigate(b.dataset.page)}));
+document.getElementById('logoutButton').addEventListener('click',()=>alert('Logout is a demo action. Connect Firebase/Auth here.'));
+ navigate('study');
+
+</script>le('active',b.dataset.page===page));sidebar.classList.remove('open');document.querySelectorAll('[data-page]').forEach(el=>{if(!el.dataset.bound){el.dataset.bound='1';el.addEventListener('click',()=>navigate(el.dataset.page))}});const search=document.getElementById('batchSearch');if(search){search.addEventListener('input',()=>{const card=document.querySelector('.batch-card');card.style.display=search.value&&!('bitsat crash course 2025'.includes(search.value.toLowerCase()))?'none':'block'})}const explore=document.getElementById('exploreCareer');if(explore)explore.onclick=()=>alert('Career Pass demo button clicked. Connect this to your checkout page.');const save=document.getElementById('saveProfile');if(save)save.onclick=()=>alert('Profile changes saved locally in this demo.');}
+document.querySelectorAll('.nav-item').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.page)));
+document.getElementById('mobileToggle').addEventListener('click',()=>sidebar.classList.toggle('open'));
+const profileButton=document.getElementById('profileButton'),profileMenu=document.getElementById('profileMenu');profileButton.addEventListener('click',e=>{e.stopPropagation();profileMenu.classList.toggle('show')});document.addEventListener('click',()=>profileMenu.classList.remove('show'));profileMenu.addEventListener('click',e=>e.stopPropagation());profileMenu.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{profileMenu.classList.remove('show');navigate(b.dataset.page)}));document.getElementById('logoutButton').addEventListener('click',()=>alert('Logout is a demo action. Connect Firebase/Auth here.'));
+navigate('study');
+</script>
+</body>
+</html>

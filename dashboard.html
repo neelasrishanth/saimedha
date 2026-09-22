@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SaiMedha Student Dashboard</title>
+<style>
+:root{--navy:#182126;--purple:#6b57e8;--purple-soft:#d9d1ff;--bg:#f7f8fa;--text:#24272b;--muted:#7d8189;--line:#e6e8ed;--card:#fff;--success:#1f9d55;--danger:#e55353;--orange:#f5a65b;--mint:#dff6ee;--peach:#ffead5;--blue:#e9efff}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg);min-height:100vh}button,input{font:inherit}button{cursor:pointer;border:0;background:none}.app{min-height:100vh}.topbar{height:68px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:12px;font-weight:750;font-size:17px}.brand-mark{width:35px;height:35px;border:2px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:17px;background:#fff;color:var(--navy)}.top-actions{display:flex;align-items:center;gap:22px}.career{border:1px solid #69737a;border-radius:8px;color:#fff;padding:9px 14px;display:flex;gap:10px;align-items:center}.career:hover{background:#2b353c}.app-badge{font-size:11px;border:1px solid #69737a;border-radius:5px;padding:4px 8px}.profile-btn{color:#fff;display:flex;align-items:center;gap:10px}.avatar{width:35px;height:35px;background:#ffca70;border-radius:50%;display:grid;place-items:center;color:#55330a;font-weight:800}.shell{display:flex;min-height:calc(100vh - 68px)}.sidebar{width:248px;background:#fff;border-right:1px solid var(--line);flex-shrink:0;padding:28px 0;position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto}.section-label{font-size:12px;font-weight:700;color:#8c9097;padding:0 28px;margin:8px 0 12px}.nav-item{width:100%;display:flex;align-items:center;gap:14px;padding:15px 28px;color:#30343a;font-size:14px;text-align:left;position:relative}.nav-item:hover{background:#f4f2ff}.nav-item.active{background:var(--purple-soft);color:var(--purple);font-weight:750}.nav-item.active:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--purple)}.nav-icon{width:18px;text-align:center;font-size:18px}.new-badge{margin-left:auto;background:#ff625c;color:#fff;font-size:10px;font-weight:800;padding:3px 7px;clip-path:polygon(0 0,100% 0,87% 100%,0 100%)}.main{flex:1;min-width:0}.page-head{height:60px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 34px;font-size:18px;font-weight:700}.page{padding:28px 34px;max-width:1500px;margin:auto}.page-title{font-size:26px;font-weight:800;margin-bottom:24px}.content-panel{background:#fff;border:1px solid #f0f0f3;border-radius:12px;box-shadow:0 3px 16px rgba(26,31,45,.035);padding:34px}.learning-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.learning-card{border-radius:9px;padding:20px 17px;min-height:180px}.learning-card.blue{background:#edf0ff}.learning-card.peach{background:#ffead5}.learning-card.mint{background:#e2f6f1}.icon-box{width:50px;height:50px;background:#fff;border-radius:11px;display:grid;place-items:center;font-size:25px;margin-bottom:15px}.learning-card h3{font-size:18px;margin-bottom:10px}.learning-card p{font-size:14px;line-height:1.65;color:#747982}.section-title{font-size:23px;margin-bottom:24px}.quick-panel{margin-top:24px}.quick-card{width:370px;max-width:100%;border:1px solid #e4e6ec;border-radius:10px;padding:20px 17px;min-height:180px}.quick-card h3{margin:12px 0 10px}.quick-card p{color:var(--muted);font-size:14px}.search-row{display:flex;justify-content:flex-end;margin-bottom:32px}.search{width:min(405px,100%);height:48px;border:1px solid #d8dbe1;border-radius:7px;padding:0 15px 0 43px;background:#fff url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%237b8088" stroke-width="2"%3E%3Ccircle cx="11" cy="11" r="7"/%3E%3Cpath d="m20 20-4-4"/%3E%3C/svg%3E') no-repeat 14px center}.course-promo{width:395px;max-width:100%;border-radius:18px;overflow:hidden;background:#0b1534;color:#fff;box-shadow:0 7px 18px rgba(9,18,50,.12)}.promo-top{padding:30px 22px 20px;background:linear-gradient(135deg,#0a1028,#1d3566)}.promo-top h2{font-size:31px;letter-spacing:-1px}.promo-top p{color:#c8d2e9;margin-top:8px}.promo-bottom{background:#fff;color:#2b3038;margin:0 23px 23px;border-radius:15px;padding:18px}.promo-bottom h3{font-size:19px;margin-bottom:12px}.promo-bottom li{list-style:none;font-size:13px;margin:8px 0}.promo-bottom li:before{content:'✓';margin-right:10px;color:#6c7279}.price{font-size:18px;font-weight:800;margin-top:16px}.price del{font-size:13px;color:#999;margin-left:6px;font-weight:500}.discount{color:#28934e;font-weight:800;font-size:14px}.black-btn{background:#15191d;color:#fff;border-radius:7px;padding:12px 18px;font-weight:750}.promo-bottom .black-btn{float:right;margin-top:-34px}.tabs{display:flex;gap:0;background:#eef1ff;border-radius:14px;padding:5px;width:max-content;max-width:100%;margin-bottom:28px}.tab{padding:16px 65px;border-radius:11px;font-weight:700;color:#7e828b}.tab.active{background:#fff;color:var(--purple);box-shadow:0 2px 10px rgba(40,44,70,.06)}.subtabs{display:flex;gap:35px;border-bottom:1px solid var(--line);margin-bottom:25px}.subtab{padding:0 5px 13px;color:#686d76;font-weight:700}.subtab.active{color:var(--purple);border-bottom:4px solid var(--purple)}.empty{background:#fff;border-radius:20px;min-height:350px;display:grid;place-items:center;text-align:center;padding:40px}.empty-icon{font-size:80px;opacity:.9;margin-bottom:18px}.empty h3{font-size:18px;margin-bottom:8px}.empty p{color:var(--muted);font-size:14px}.test-btn{margin-top:25px;background:#20262b;color:#fff;padding:14px 22px;border-radius:7px;font-weight:750}.batch-card{width:400px;max-width:100%;border:1px solid #e4e6ec;border-radius:12px;background:#fff;overflow:hidden}.batch-header{padding:18px 20px;font-weight:800;font-size:18px}.batch-img{height:170px;margin:0 20px;border-radius:10px;background:linear-gradient(135deg,#242424,#606060);display:grid;place-items:center;color:#fff;text-align:center;font-size:27px;font-weight:900;letter-spacing:1px}.expired{margin-top:22px;border-top:1px solid #e2e2e2;padding:16px 20px;color:var(--danger);font-size:13px;font-weight:800}.purchase{background:#fff;border:1px solid #e0e3e8;border-radius:17px;padding:24px;margin-bottom:18px}.purchase-main{display:flex;align-items:center;gap:17px}.purchase-thumb{width:190px;height:96px;border-radius:11px;background:linear-gradient(135deg,#2c241f,#7b5a37);color:#fff;display:grid;place-items:center;text-align:center;font-size:17px;font-weight:900}.purchase-info{flex:1}.status{display:inline-block;font-size:11px;padding:5px 9px;border-radius:4px;font-weight:800;margin-bottom:8px}.status.success{background:#dff3e6;color:#2d8a4c}.status.failed{background:#ffe3e3;color:#e15a5a}.purchase-info h3{font-size:19px;margin-bottom:9px}.purchase-info p{font-size:14px;color:#4c535b}.purchase-arrow{font-size:28px}.notice{margin-top:22px;padding:13px 15px;background:#ffe2e2;border-radius:8px;font-size:14px;font-weight:700}.notice.warn{background:#fff3db}.profile-menu{position:absolute;right:24px;top:58px;width:250px;background:#fff;border:1px solid #e0e2e7;border-radius:10px;box-shadow:0 12px 35px rgba(0,0,0,.15);overflow:hidden;display:none;color:#2c3137}.profile-menu.show{display:block}.profile-menu button{display:block;width:100%;text-align:left;padding:16px 20px;font-size:15px}.profile-menu button:hover{background:#f3f0ff;color:var(--purple)}.profile-menu button.active{background:#f0ecff;color:var(--purple);font-weight:750}.mobile-toggle{display:none;color:#fff;font-size:24px}.hidden{display:none!important}@media(max-width:900px){.sidebar{width:210px}.learning-grid{grid-template-columns:1fr}.page{padding:24px 18px}.page-head{padding:0 18px}.topbar{padding:0 14px}.career,.app-badge{display:none}.tab{padding:14px 25px}}@media(max-width:650px){.mobile-toggle{display:block}.brand span{font-size:14px}.sidebar{position:fixed;left:-260px;top:68px;z-index:15;transition:left .25s;width:245px;box-shadow:5px 0 25px rgba(0,0,0,.12)}.sidebar.open{left:0}.page-title{font-size:23px}.content-panel{padding:20px}.purchase-main{align-items:flex-start}.purchase-thumb{width:105px;height:75px;font-size:12px}.purchase-info h3{font-size:15px}.purchase-arrow{display:none}.profile-label{display:none}.batch-card{width:100%}}
+
+/* =========================================================
+   SaiMedha visual theme only
+   The original dashboard header/navigation is preserved.
+   ========================================================= */
+:root{
+  --purple:#e00016;
+  --purple-soft:#ffd0cc;
+  --bg:#fff;
+  --text:#171717;
+  --muted:#666a70;
+  --line:#ececec;
+  --orange:#ff5a00;
+  --gold:#f5b800;
+}
+body{
+  background:#fff;
+  color:var(--text);
+}
+.sidebar{
+  background:#fff;
+  border-right:1px solid #ececec;
+}
+.nav-item:hover{
+  background:#fff5f1;
+}
+.nav-item.active{
+  background:#ffd0cc;
+  color:#e00016;
+}
+.nav-item.active:before{
+  background:#e00016;
+}
+.main{
+  background:#fff;
+}
+.page-head{
+  background:#fff;
+  border-bottom:1px solid #ededed;
+}
+.page{
+  background:#fff;
+}
+.page-title{
+  letter-spacing:-.5px;
+}
+.page-title:after{
+  content:"";
+  display:block;
+  width:78px;
+  height:5px;
+  border-radius:10px;
+  margin-top:10px;
+  background:linear-gradient(90deg,#e00016,#ff5a00,#f5b800);
+}
+.content-panel{
+  border:1px solid #ececec;
+  box-shadow:0 5px 18px rgba(0,0,0,.035);
+}
+.learning-card{
+  transition:all .2s ease;
+}
+.learning-card.blue{
+  background:#fff0ee;
+  border:1px solid #ffe0d8;
+}
+.learning-card.peach{
+  background:#fff0df;
+  border:1px solid #ffe0bd;
+}
+.learning-card.mint{
+  background:#fff8d8;
+  border:1px solid #f8e7a5;
+}
+.learning-card:hover,
+.quick-card:hover,
+.batch-card:hover,
+.course-promo:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
+}
+.quick-card{
+  transition:all .2s ease;
+}
+.course-promo{
+  box-shadow:0 12px 28px rgba(23,27,34,.12);
+}
+.promo-top{
+  background:linear-gradient(135deg,#241522,#b90012);
+}
+.black-btn,
+.test-btn{
+  background:#171b22;
+}
+.black-btn:hover,
+.test-btn:hover{
+  background:#e00016;
+}
+.tabs{
+  background:#fff4c9;
+}
+.tab.active{
+  color:#e00016;
+}
+.subtab.active{
+  color:#e00016;
+  border-bottom-color:#e00016;
+}
+.notice{
+  background:#ffe2e2;
+}
+@media(max-width:650px){
+  .page{
+    background:#fff;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><button class="mobile-toggle" id="mobileToggle">☰</button><div class="brand-mark">S</div><span>SaiMedha</span></div>
+  <div class="top-actions"><button class="career">🎓 Career Pass <span>›</span></button><span class="app-badge">▶ Get it on Google Play</span><button class="profile-btn" id="profileButton"><span class="profile-label">Hi, Srishanth ...</span><span class="avatar">S</span><span>⌄</span></button></div>
+  <div class="profile-menu" id="profileMenu"><button data-page="profile">♙ &nbsp; My Profile</button><button data-page="purchases" class="active">▢ &nbsp; My Purchases</button><button id="logoutButton">◷ &nbsp; Logout</button></div>
+</header>
+<div class="shell">
+<aside class="sidebar" id="sidebar">
+  <div class="section-label">LEARN ONLINE</div>
+  <button class="nav-item active" data-page="study"><span class="nav-icon">✎</span>Study</button>
+  <button class="nav-item" data-page="pi"><span class="nav-icon">π</span>Pi <span class="new-badge">NEW</span></button>
+  <div class="section-label" style="margin-top:38px">STUDY PACKS</div>
+  <button class="nav-item" data-page="batches"><span class="nav-icon">▣</span>Batches</button>
+  <button class="nav-item" data-page="tests"><span class="nav-icon">▧</span>My Test</button>
+  <div class="section-label" style="margin-top:38px">EXPLORE SAIMEDHA</div>
+  <button class="nav-item" data-page="store"><span class="nav-icon">🛒</span>Store</button>
+  <button class="nav-item" data-page="upskilling"><span class="nav-icon">🚀</span>Upskilling</button>
+  <div class="section-label" style="margin-top:38px">MORE</div>
+  <button class="nav-item" data-page="privacy"><span class="nav-icon">♢</span>Privacy Policy</button>
+</aside>
+<main class="main"><div class="page-head" id="pageHead">Study</div><section class="page" id="pageContent"></section></main>
+</div></div>
+<script>
+const pageContent=document.getElementById('pageContent'), pageHead=document.getElementById('pageHead'), sidebar=document.getElementById('sidebar');
+const pages={
+ study:{title:'Study',html:`<h1 class="page-title">My Learning</h1><div class="content-panel"><div class="learning-grid"><button class="learning-card blue" data-page="batches"><div class="icon-box">📖</div><h3>My Batches</h3><p>View list of the batches in which you are enrolled</p></button><button class="learning-card peach" data-page="history"><div class="icon-box">◴</div><h3>Recent Learning</h3><p>View your past learning history</p></button><button class="learning-card mint" data-page="doubts"><div class="icon-box">❔</div><h3>My Doubts</h3><p>View the list of your asked doubts in the lectures</p></button></div></div><div class="content-panel quick-panel"><h2 class="section-title">Quick Access</h2><button class="quick-card" data-page="bookmarks"><div class="icon-box">🔖</div><h3>Bookmarks</h3><p>View the list of your saved questions.</p></button></div>`},
+ batches:{title:'Batches',html:`<div class="search-row"><input class="search" id="batchSearch" placeholder="Search courses" /></div><h1 class="page-title">All Courses</h1><div class="course-promo"><div class="promo-top"><h2>CAREER PASS</h2><p>Your Next Step Towards the Future</p></div><div class="promo-bottom"><h3>Pass Highlights</h3><ul><li>Unlock ₹1L+ Worth of Paid Courses</li><li>Explore 20+ Career Paths</li><li>Khazana of all batches</li><li>Offer valid till 10th Sep</li></ul><div class="price">₹15,000 <del>₹25,000</del></div><div class="discount">(40% OFF)</div><button class="black-btn" id="exploreCareer">Explore More</button></div></div><div style="margin-top:35px"><h2 class="section-title">My Batches</h2><div class="tabs"><button class="tab active">Paid</button><button class="tab">Free</button></div><div class="subtabs"><button class="subtab active">All</button><button class="subtab">Expired</button></div><div class="batch-card"><div class="batch-header">BITSAT Crash Course 2025 <span style="font-size:11px;background:#ffdf42;padding:5px 8px;border-radius:6px;float:right">new</span></div><div class="batch-img">BITSAT<br/>CRASH COURSE<br/>2025</div><div class="expired">⛔ Batch Expired</div></div></div>`},
+ tests:{title:'My Tests',html:`<div style="background:linear-gradient(#d6f8e5,#fff 55%);margin:-28px -34px 0;padding:42px 34px 30px"><h1 class="page-title">My Tests</h1></div><div class="empty"><div><div class="empty-icon">📄🔍</div><h3>No Test Pass Purchased!</h3><p>Your purchased Test Pass will appear here. Start your prep by choosing one!</p><button class="test-btn" data-page="store">Explore Test Pass</button></div></div>`},
+ history:{title:'My History',html:`<div class="content-panel"><div style="display:flex;gap:18px;margin-bottom:22px"><button class="subtab active">Videos</button><button class="subtab">Practice</button></div><div class="empty" style="min-height:280px"><div><div class="empty-icon">📄🔍</div><h3>No Content Found</h3><p>Your watched videos will be saved here.</p></div></div></div>`},
+ purchases:{title:'My Purchases',html:`<div class="tabs"><button class="tab active">PW Orders</button><button class="tab">Store Orders</button></div><div class="purchase"><div class="purchase-main"><div class="purchase-thumb">BITSAT<br/>CRASH COURSE<br/>2025</div><div class="purchase-info"><span class="status success">SUCCESS</span><h3>BITSAT Crash Course 2025</h3><p>21 Feb'25 • ₹969</p></div><div class="purchase-arrow">›</div></div><div class="notice">This batch got expired on 30 Jun 2025! Renew to access this batch again</div></div><div class="purchase"><div class="purchase-main"><div class="purchase-thumb">BITSAT<br/>CRASH COURSE<br/>2025</div><div class="purchase-info"><span class="status failed">FAILED</span><h3>BITSAT Crash Course 2025</h3><p>21 Feb'25 • ₹999</p></div><div class="purchase-arrow">›</div></div><div class="notice warn">Note: If money or PW Cash is debited from your account, it will be automatically refunded / reversed.</div><div class="notice">This batch got expired on 30 Jun 2025! Renew to access this batch again</div></div>`},
+ profile:{title:'My Profile',html:`<div class="content-panel"><h1 class="page-title">My Profile</h1><div style="display:grid;gap:18px;max-width:600px"><label>Full Name<input class="search" style="width:100%;padding-left:15px;background-image:none" value="Srishanth Neela" /></label><label>Email<input class="search" style="width:100%;padding-left:15px;background-image:none" value="se25umcs001@example.com" /></label><label>Phone<input class="search" style="width:100%;padding-left:15px;background-image:none" placeholder="Add phone number" /></label><button class="test-btn" id="saveProfile">Save Changes</button></div></div>`},
+ pi:{title:'Pi',html:`<div class="content-panel"><h1 class="page-title">Pi</h1><p style="color:var(--muted)">Explore interactive learning, practice activities, and AI-powered study support.</p><button class="test-btn" data-page="study">Back to Study</button></div>`},
+ store:{title:'Store',html:`<div class="content-panel"><h1 class="page-title">Store</h1><p style="color:var(--muted)">Explore courses, test passes, and learning resources.</p><div style="margin-top:25px"><button class="test-btn" data-page="batches">Explore Courses</button></div></div>`},
+ upskilling:{title:'Upskilling',html:`<div class="content-panel"><h1 class="page-title">Upskilling</h1><p style="color:var(--muted)">Build practical skills with structured learning paths.</p></div>`},
+ privacy:{title:'Privacy Policy',html:`<div class="content-panel"><h1 class="page-title">Privacy Policy</h1><p style="color:var(--muted);line-height:1.8">Your account information should be handled responsibly. This demo page can be replaced with your complete privacy policy before publishing.</p></div>`},
+ doubts:{title:'My Doubts',html:`<div class="empty"><div><div class="empty-icon">❔</div><h3>No Doubts Found</h3><p>Your asked doubts will appear here.</p></div></div>`},
+ bookmarks:{title:'Bookmarks',html:`<div class="empty"><div><div class="empty-icon">🔖</div><h3>No Bookmarks Found</h3><p>Your saved questions will appear here.</p></div></div>`}
+};
+function navigate(page){if(!pages[page])page='study';pageHead.textContent=pages[page].title;pageContent.innerHTML=pages[page].html;document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.page===page));sidebar.classList.remove('open');document.querySelectorAll('[data-page]').forEach(el=>{if(!el.dataset.bound){el.dataset.bound='1';el.addEventListener('click',()=>navigate(el.dataset.page))}});const search=document.getElementById('batchSearch');if(search){search.addEventListener('input',()=>{const card=document.querySelector('.batch-card');card.style.display=search.value&&!('bitsat crash course 2025'.includes(search.value.toLowerCase()))?'none':'block'})}const explore=document.getElementById('exploreCareer');if(explore)explore.onclick=()=>alert('Career Pass demo button clicked. Connect this to your checkout page.');const save=document.getElementById('saveProfile');if(save)save.onclick=()=>alert('Profile changes saved locally in this demo.');}
+document.querySelectorAll('.nav-item').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.page)));
+document.getElementById('mobileToggle').addEventListener('click',()=>sidebar.classList.toggle('open'));
+const profileButton=document.getElementById('profileButton'),profileMenu=document.getElementById('profileMenu');profileButton.addEventListener('click',e=>{e.stopPropagation();profileMenu.classList.toggle('show')});document.addEventListener('click',()=>profileMenu.classList.remove('show'));profileMenu.addEventListener('click',e=>e.stopPropagation());profileMenu.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{profileMenu.classList.remove('show');navigate(b.dataset.page)}));document.getElementById('logoutButton').addEventListener('click',()=>alert('Logout is a demo action. Connect Firebase/Auth here.'));
+navigate('study');
+</script>
+</body>
+</html>

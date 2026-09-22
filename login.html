@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login / Sign Up</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="auth-body">
+    <div class="auth-shell">
+      <section class="auth-visual">
+        <a class="auth-logo" href="index.html"><img class="auth-logo-image" src="/img/logo.png" alt="Saimedha"></a>
+        <div class="auth-image-wrap">
+          <!-- Replace the placeholder below with your own image when ready. -->
+          <div class="auth-image-placeholder">
+            <div class="placeholder-icon">✦</div>
+            <strong><img src="/img/logo.png" alt=""></strong>
+            <span>Place your admission / learning / institute image here</span>
+          </div>
+        </div>
+        <div class="auth-visual-copy">
+          <span class="auth-kicker">YOUR LEARNING JOURNEY</span>
+          <h1>Learn. Practice.<br /><span>Succeed.</span></h1>
+          <p>
+            Everything you need to prepare smarter and move closer to your
+            goals.
+          </p>
+        </div>
+        <div class="auth-dots"><i class="active"></i><i></i><i></i><i></i></div>
+      </section>
+
+      <section class="auth-panel">
+        <div class="auth-top">
+          <span>Already have an account?</span>
+          <button type="button" class="top-switch" onclick="showAuth('login')">
+            Login
+          </button>
+        </div>
+
+        <div class="auth-content">
+          <div class="auth-heading">
+            <span class="welcome">Welcome!</span>
+            <h2 id="authTitle">Login to continue</h2>
+            <p id="authSubtitle">
+              Enter your mobile number and we'll send you an OTP.
+            </p>
+          </div>
+
+          <div class="auth-tabs" role="tablist" aria-label="Login or sign up">
+            <button
+              id="loginTab"
+              class="auth-tab active"
+              type="button"
+              onclick="showAuth('login')"
+            >
+              Login
+            </button>
+            <button
+              id="signupTab"
+              class="auth-tab"
+              type="button"
+              onclick="showAuth('signup')"
+            >
+              Sign Up
+            </button>
+          </div>
+
+          <form
+            id="loginForm"
+            class="auth-form"
+            onsubmit="handleAuth(event, 'login')"
+          >
+            <label>Mobile Number</label>
+            <div class="phone-input">
+              <span class="country-code">🇮🇳 +91</span>
+              <input
+                id="loginMobile"
+                type="tel"
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="Enter your mobile number"
+                required
+              />
+            </div>
+
+            <button class="auth-primary" type="submit">
+              Get OTP <span>→</span>
+            </button>
+            <p class="auth-helper">
+              We'll use your mobile number to securely verify your account.
+            </p>
+          </form>
+
+          <form
+            id="otpForm"
+            class="auth-form hidden"
+            onsubmit="verifyOtp(event)"
+          >
+            <label>Enter OTP</label>
+            <input
+              id="loginOtp"
+              type="tel"
+              inputmode="numeric"
+              maxlength="6"
+              placeholder="Enter 6 digit OTP"
+              required
+            />
+
+            <button class="auth-primary" type="submit">
+              Verify OTP <span>→</span>
+            </button>
+            <p class="auth-helper">
+              Local demo OTP is 123456.
+              <button type="button" class="top-switch" onclick="requestOtp()">
+                Resend
+              </button>
+            </p>
+          </form>
+
+          <form
+            id="signupForm"
+            class="auth-form hidden"
+            onsubmit="handleAuth(event, 'signup')"
+          >
+            <label>Full Name</label>
+            <input id="signupName" type="text" placeholder="Enter your full name" required />
+
+            <label>Mobile Number</label>
+            <div class="phone-input">
+              <span class="country-code">🇮🇳 +91</span>
+              <input
+                id="signupMobile"
+                type="tel"
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="Enter your mobile number"
+                required
+              />
+            </div>
+
+            <label
+              >Email Address <span class="optional">(optional)</span></label
+            >
+            <input id="signupEmail" type="email" placeholder="Enter your email address" />
+
+            <label>Password</label>
+            <input
+              id="signupPassword"
+              type="password"
+              minlength="6"
+              placeholder="Create a password"
+              required
+            />
+
+            <button class="auth-primary" type="submit">
+              Create Account <span>→</span>
+            </button>
+            <p class="terms">
+              By continuing, you agree to our <a href="#">Terms</a> and
+              <a href="#">Privacy Policy</a>.
+            </p>
+          </form>
+
+          <div class="auth-footer-link" id="footerSwitch">
+            Don't have an account?
+            <button type="button" onclick="showAuth('signup')">Sign Up</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+    <script>
+      let pendingLoginMobile = "";
+
+      function showAuth(mode) {
+        const login = mode === "login";
+        document.getElementById("loginTab").classList.toggle("active", login);
+        document.getElementById("signupTab").classList.toggle("active", !login);
+        document.getElementById("loginForm").classList.toggle("hidden", !login);
+        document.getElementById("otpForm").classList.add("hidden");
+        document.getElementById("signupForm").classList.toggle("hidden", login);
+        document.getElementById("authTitle").textContent = login
+          ? "Login to continue"
+          : "Create your account";
+        document.getElementById("authSubtitle").textContent = login
+          ? "Enter your mobile number and we'll send you an OTP."
+          : "Enter your details to get started with your learning journey.";
+        document.getElementById("footerSwitch").innerHTML = login
+          ? 'Don\'t have an account? <button type="button" onclick="showAuth(\'signup\')">Sign Up</button>'
+          : 'Already have an account? <button type="button" onclick="showAuth(\'login\')">Login</button>';
+        document.querySelector(".top-switch").textContent = login
+          ? "Sign Up"
+          : "Login";
+        document.querySelector(".top-switch").onclick = () =>
+          showAuth(login ? "signup" : "login");
+      }
+
+      function showOtpForm(mobile, otp) {
+        pendingLoginMobile = mobile;
+        document.getElementById("loginForm").classList.add("hidden");
+        document.getElementById("signupForm").classList.add("hidden");
+        document.getElementById("otpForm").classList.remove("hidden");
+        document.getElementById("loginTab").classList.add("active");
+        document.getElementById("signupTab").classList.remove("active");
+        document.getElementById("authTitle").textContent = "Verify OTP";
+        document.getElementById("authSubtitle").textContent =
+          `Enter the OTP sent to +91 ${mobile}.`;
+        document.getElementById("loginOtp").focus();
+        toast(`OTP sent. Demo OTP: ${otp || "123456"}`);
+      }
+
+      async function requestOtp() {
+        try {
+          const mobile = pendingLoginMobile || document.getElementById("loginMobile").value;
+          if (!mobile) {
+            toast("Enter your mobile number first");
+            return;
+          }
+          const response = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ mobile }),
+          });
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error || "Could not send OTP");
+          showOtpForm(data.mobile, data.otp);
+        } catch (error) {
+          toast(error.message);
+        }
+      }
+
+      async function handleAuth(e, mode) {
+        e.preventDefault();
+        try {
+          if (mode === "login") {
+            await requestOtp();
+            return;
+          }
+          const payload = {
+            name: document.getElementById("signupName").value,
+            mobile: document.getElementById("signupMobile").value,
+            email: document.getElementById("signupEmail").value,
+            password: document.getElementById("signupPassword").value,
+          };
+          const response = await fetch(`/api/auth/${mode}`, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error || "Authentication failed");
+          localStorage.setItem("saimedha_token", data.token);
+          toast(mode === "login" ? "OTP verified for demo" : "Account created");
+          window.setTimeout(() => {
+            window.location.href = "/student/dashboard.html";
+          }, 500);
+        } catch (error) {
+          toast(error.message);
+        }
+      }
+
+      async function verifyOtp(e) {
+        e.preventDefault();
+        try {
+          const response = await fetch("/api/auth/verify-otp", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              mobile: pendingLoginMobile,
+              otp: document.getElementById("loginOtp").value,
+            }),
+          });
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error || "OTP verification failed");
+          localStorage.setItem("saimedha_token", data.token);
+          toast("Logged in successfully");
+          window.setTimeout(() => {
+            window.location.href = "/student/dashboard.html";
+          }, 500);
+        } catch (error) {
+          toast(error.message);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        const authToken = localStorage.getItem("saimedha_token");
+        if (!authToken) return;
+        try {
+          const response = await fetch("/api/me", {
+            headers: { authorization: `Bearer ${authToken}` },
+          });
+          if (response.ok) window.location.href = "/student/dashboard.html";
+        } catch {}
+      });
+    </script>
+  </body>
+</html>

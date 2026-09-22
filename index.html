@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Saimedha | Trusted and Affordable Educational Platform</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="index.html"
+        ><img class="logo-image" src="/img/logo.png" alt="Saimedha"
+      /></a>
+      <div class="courses-wrap">
+        <button
+          id="coursesBtn"
+          class="courses-btn"
+          onclick="toggleCourses(event)"
+        >
+          All Courses <span class="arrow">⌄</span>
+        </button>
+        <div id="dropdown" class="dropdown">
+          <div class="dropdown-left">
+            <div
+              class="category active"
+              onclick="showCategory('competitive', this)"
+            >
+              <h3>Competitive Exams</h3>
+              <p>IIT JEE, NEET, ESE, GATE, AE/JE, Olympiad</p>
+            </div>
+          </div>
+          <div class="dropdown-right">
+            <h2 id="dropdownTitle" class="dropdown-title">Competitive Exams</h2>
+            <div id="courseGrid" class="course-grid"></div>
+          </div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="testseries.html">Test Series</a>
+        <a class="nav-link" href="store.html">Store</a>
+        <a class="nav-link" href="#about-us">About Us</a>
+      </nav>
+      <a class="login" href="login.html">Login/Register</a>
+    </header>
+    <main class="page">
+      <section class="home-slider" data-slider aria-label="Featured courses">
+        <div class="slider-track"></div>
+        <button
+          class="slider-control slider-prev"
+          type="button"
+          aria-label="Previous slide"
+        >
+          &#10094;
+        </button>
+        <button
+          class="slider-control slider-next"
+          type="button"
+          aria-label="Next slide"
+        >
+          &#10095;
+        </button>
+
+        <div
+          class="slider-dots"
+          role="tablist"
+          aria-label="Choose a slide"
+        ></div>
+      </section>
+
+      <h1>Saimedha's Trusted & Affordable Educational Platform</h1>
+      <p>Learn with structured courses, practice and test series.</p>
+      <div class="cards">
+        <a class="card" href="courses.html#ap-ecet-cse-2027-2028">
+          <div class="card-icon">🎓</div>
+          <h3>AP ECET Preparation</h3>
+          <p>AP ECET 2027 and 2028 for all major branches.</p>
+        </a>
+        <a class="card" href="courses.html#tg-ts-ecet-cse-2027">
+          <div class="card-icon">🎓</div>
+          <h3>TG/TS ECET Preparation</h3>
+          <p>TG/TS ECET 2027 for diploma students.</p>
+        </a>
+        <a class="card" href="courses.html#c-26-cse-1st-year">
+          <div class="card-icon">📚</div>
+          <h3>Diploma 1st Year</h3>
+          <p>C-26 first-year courses for all branches.</p>
+        </a>
+      </div>
+
+      <section class="promo-column" aria-label="Saimedha learning promotion">
+        <div class="promo-column-content">
+          <span class="promo-kicker">Saimedha Success Programs</span>
+          <h2>Prepare with guidance that takes you closer to your goal.</h2>
+          <p>
+            Explore focused ECET, diploma, and job preparation courses designed
+            for your next step.
+          </p>
+          <a class="promo-button" href="courses.html"
+            >Explore courses <span>→</span></a
+          >
+        </div>
+        <img src="/img/banner.jpg" alt="Saimedha course success banner" />
+      </section>
+
+      <section class="scholarship-column" aria-label="Scholarship guidance">
+        <div class="scholarship-icon">🏆</div>
+        <div>
+          <span class="promo-kicker">Student Opportunity</span>
+          <h2>Scholarship Guidance</h2>
+          <p>
+            Discover preparation paths and opportunities that support your
+            ambitions.
+          </p>
+        </div>
+        <a class="promo-button" href="courses.html"
+          >Learn more <span>→</span></a
+        >
+      </section>
+
+      <section class="feature-columns" aria-label="Saimedha student support">
+        <article class="feature-column">
+          <div class="feature-icon">🎥</div>
+          <h2>Learn with Experts</h2>
+          <p>
+            Build strong concepts through focused lessons and clear guidance.
+          </p>
+          <a href="vidyapeeth.html">Start learning <span>→</span></a>
+        </article>
+        <article class="feature-column">
+          <div class="feature-icon">📝</div>
+          <h2>Practice and Tests</h2>
+          <p>
+            Revise regularly and measure your progress with purposeful practice.
+          </p>
+          <a href="testseries.html">Practice now <span>→</span></a>
+        </article>
+      </section>
+      <section class="programs-box" aria-label="Our programs">
+        <div class="programs-box-heading">
+          <span class="promo-kicker">Explore Saimedha</span>
+          <h2>Our Programs</h2>
+          <p>Choose the preparation path that matches your next goal.</p>
+        </div>
+        <div class="program-links">
+          <a href="courses.html#ap-ecet-cse-2027-2028"
+            >🎓 <span>AP ECET</span></a
+          >
+          <a href="courses.html#tg-ts-ecet-cse-2027"
+            >🎓 <span>TG/TS ECET</span></a
+          >
+          <a href="courses.html#c-26-cse-1st-year"
+            >📚 <span>Diploma Courses</span></a
+          >
+          <a href="courses.html#communication-constable"
+            >👷 <span>Job Preparation</span></a
+          >
+        </div>
+      </section>
+      <section class="contact-block" aria-label="Contact Saimedha Koti">
+        <div class="contact-block-icon">📍</div>
+        <div>
+          <span class="promo-kicker">Visit Saimedha Koti</span>
+          <h2>Contact Us</h2>
+          <p>
+            Flat No 302, Narayana Naik Complex, Koti, Hyderabad, Telangana
+            500001
+          </p>
+          <div class="contact-numbers">
+            <a href="tel:9246212138">92462 12138</a>
+            <a href="tel:9494871234">94948 71234</a>
+          </div>
+        </div>
+        <a
+          class="promo-button"
+          href="https://www.google.com/maps/place/SAIMEDHA+KOTI/@17.3854801,78.4839409,922m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bcb99d1f823b289:0x13fff9cd32db7f11!8m2!3d17.3854801!4d78.4865158!16s%2Fg%2F1q62bcp6j?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener"
+          >Open location <span>→</span></a
+        >
+        <iframe
+          class="location-map"
+          title="Saimedha Koti location map"
+          src="https://www.google.com/maps?q=17.3854801,78.4865158&z=16&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+      <a class="back" href="index.html">← Back to Home</a>
+    </main>
+    <footer class="footer" id="about-us">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/img/logo.png" alt="Saimedha" />
+          <h2>Saimedha</h2>
+          <p>Make Engineer, Make India.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Visit Us</h3>
+          <p>Koti, Hyderabad Center</p>
+          <a
+            href="https://www.google.com/maps/place/SAIMEDHA+KOTI/@17.3854801,78.4839409,922m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bcb99d1f823b289:0x13fff9cd32db7f11!8m2!3d17.3854801!4d78.4865158!16s%2Fg%2F1q62bcp6j?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener"
+            >Open in Google Maps →</a
+          >
+          <p class="footer-address">
+            Flat No 302, Narayana Naik Complex, Koti Women's College Road,
+            Hashmath Gunj, Subhash Nagar, Badi Chowdi, Koti, Hyderabad,
+            Telangana 500001
+          </p>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <a href="tel:9246212138">92462 12138</a>
+          <a href="tel:9494871234">94948 71234</a>
+          <p>Koti, Hyderabad, Telangana 500001</p>
+          <a
+            href="https://www.google.com/maps/place/SAIMEDHA+KOTI/@17.3854801,78.4839409,922m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bcb99d1f823b289:0x13fff9cd32db7f11!8m2!3d17.3854801!4d78.4865158!16s%2Fg%2F1q62bcp6j?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener"
+            >Get directions →</a
+          >
+          <p>For course enquiries and admissions.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Our Programs</h3>
+          <a href="courses.html#ap-ecet-cse-2027-2028">AP ECET</a>
+          <a href="courses.html#tg-ts-ecet-cse-2027">TG/TS ECET</a>
+          <a href="courses.html#c-26-cse-1st-year">Diploma Courses</a>
+          <a href="courses.html#communication-constable">Job Preparation</a>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <a href="courses.html">All Courses</a>
+          <a href="testseries.html">Test Series</a>
+          <a href="login.html">Login/Register</a>
+        </div>
+      </div>
+      <div class="footer-bottom">Saimedha Educational Platform</div>
+    </footer>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+    <script>
+      document.querySelectorAll(".course-card").length ||
+        showCategory("ap-ecet", document.querySelector(".category"));
+    </script>
+  </body>
+</html>
